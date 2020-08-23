@@ -1,7 +1,9 @@
 package com.example.memegenerator;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
+import com.example.memegenerator.APIResponse.MainResponse;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -13,17 +15,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
-
-import java.io.IOException;
-import java.util.Objects;
-
-import okhttp3.HttpUrl;
-import okhttp3.OkHttpClient;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    int pageNumber = 1;
     private static final String TAG = "MainActivity";
 
     @Override
@@ -33,19 +28,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // AndroidNetworking.initialize(getApplicationContext());
 
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this, MemesDisplayActivity.class);
+                startActivity(intent);
             }
         });
-
-        ListView listview = (ListView) findViewById(R.id.listView1);
     }
 
     @Override
@@ -68,22 +59,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public String getContents() {
-        Log.i(TAG, "Entered get contents function");
-        OkHttpClient client = new OkHttpClient();
-        HttpUrl.Builder urlBuilder = Objects.requireNonNull(HttpUrl.parse("http://alpha-meme-maker.herokuapp.com/" + pageNumber)).newBuilder();
-        String url = urlBuilder.build().toString();
-
-        try {
-            String response = APICall.GET(client, url);
-            return response;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return null;
     }
 }

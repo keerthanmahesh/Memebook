@@ -1,8 +1,11 @@
 package com.example.memegenerator.APIResponse;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainResponse {
     int code;
-    Data[] data = new Data[24];
+    List<Data> dataList = new ArrayList<>();
     String message;
     String next;
 
@@ -14,12 +17,12 @@ public class MainResponse {
         this.code = code;
     }
 
-    public Data[] getData() {
-        return data;
+    public List<Data> getData() {
+        return dataList;
     }
 
-    public void setData(Data[] data) {
-        this.data = data;
+    public void setData(List<Data> dataList) {
+        this.dataList = dataList;
     }
 
     public String getMessage() {

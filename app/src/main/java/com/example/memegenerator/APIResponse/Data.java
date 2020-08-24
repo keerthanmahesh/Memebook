@@ -1,9 +1,13 @@
 package com.example.memegenerator.APIResponse;
 
+import android.net.Uri;
+
+import java.net.URL;
+
 public class Data {
     int ID;
     String bottomText;
-    String image;
+    URL imageURL;
     String name;
     String tags;
     String topText;
@@ -16,12 +20,12 @@ public class Data {
         this.bottomText = bottomText;
     }
 
-    public String getImage() {
-        return image;
+    public URL getImageURL() {
+        return imageURL;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImageURL(URL imageURL) {
+        this.imageURL = imageURL;
     }
 
     public String getName() {

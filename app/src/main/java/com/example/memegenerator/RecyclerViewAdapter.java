@@ -43,6 +43,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), MemesEditActivity.class);
+                intent.putExtra(Intent.EXTRA_TEXT, data.getImageURL().toString());
                 view.getContext().startActivity(intent);
             }
         });

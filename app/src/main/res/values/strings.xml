@@ -18,4 +18,13 @@
     <string name="icon">Icon</string>
 
     <string name="explore">Explore</string>
+
+    <string name="meme_edit">Meme Edit</string>
+
+    <string name="top_text">Top Text</string>
+    <string name="bottom_text">Bottom Text</string>
+
+    <string name="render">Render</string>
+    <string name="save">Save</string>
+    <string name="share">Share</string>
 </resources>

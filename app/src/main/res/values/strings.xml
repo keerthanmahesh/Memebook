@@ -27,4 +27,6 @@
     <string name="render">Render</string>
     <string name="save">Save</string>
     <string name="share">Share</string>
+
+    <string name="edit_meme">Edit Meme</string>
 </resources>

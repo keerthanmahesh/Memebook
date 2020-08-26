@@ -71,7 +71,7 @@ public class MemesDisplayActivity extends AppCompatActivity {
                             }
                             mainResponse.setData(dataList);
 
-                            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+                            RecyclerView recyclerView = findViewById(R.id.recycler_view);
                             RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(dataList);
                             recyclerView.setHasFixedSize(true);
                             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MemesDisplayActivity.this);

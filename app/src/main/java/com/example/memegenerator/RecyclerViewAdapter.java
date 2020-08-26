@@ -43,7 +43,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), MemesEditActivity.class);
-                intent.putExtra(Intent.EXTRA_TEXT, data.getImageURL().toString());
+                intent.putExtra("meme_image_url", data.getImageURL().toString());
+                intent.putExtra("meme_name", data.getName());
+                intent.putExtra("meme_tags", data.getTags());
                 view.getContext().startActivity(intent);
             }
         });
@@ -61,10 +63,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public Button button;
         public ViewHolder(View view) {
             super(view);
-            this.imageView = (ImageView) view.findViewById(R.id.imageView);
-            this.textView = (TextView) view.findViewById(R.id.textView);
-            relativeLayout = (RelativeLayout) view.findViewById(R.id.relative_layout);
-            this.button = (Button) view.findViewById(R.id.explore_button);
+            this.imageView = view.findViewById(R.id.imageView);
+            this.textView = view.findViewById(R.id.textView);
+            this.relativeLayout = view.findViewById(R.id.relative_layout);
+            this.button = view.findViewById(R.id.explore_button);
         }
     }
 }

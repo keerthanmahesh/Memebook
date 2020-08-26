@@ -11,9 +11,14 @@ import java.io.InputStream;
 class LoadImage extends AsyncTask<String, Void, Bitmap> {
     @SuppressLint("StaticFieldLeak")
     ImageView bmImage;
+    Bitmap bitmap;
 
     public LoadImage(ImageView bmImage) {
         this.bmImage = bmImage;
+    }
+
+    public LoadImage(Bitmap bitmap) {
+        this.bitmap = bitmap;
     }
 
     protected Bitmap doInBackground(String... urls) {
@@ -29,6 +34,7 @@ class LoadImage extends AsyncTask<String, Void, Bitmap> {
     }
 
     protected void onPostExecute(Bitmap result) {
+        this.bitmap = result;
         bmImage.setImageBitmap(result);
     }
 }

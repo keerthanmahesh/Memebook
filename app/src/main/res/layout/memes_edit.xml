@@ -16,21 +16,22 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/white"
             android:gravity="center"
+            android:background="@color/white"
+            app:navigationIcon="?attr/homeAsUpIndicator"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <TextView
                 android:id="@+id/toolbar_title"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="casual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/app_name"
+                android:text="@string/edit_meme"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-thin"/>
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -83,9 +84,6 @@
 
         </RelativeLayout>
 
-
-
-
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -125,7 +123,7 @@
                 android:layout_marginLeft="20sp"
                 android:layout_marginRight="20sp"
                 android:autofillHints=""
-                android:hint="@string/top_text"/>
+                android:hint="@string/top_text" />
 
             <TextView
                 android:id="@+id/bottom_textView"
@@ -156,20 +154,6 @@
                 android:hint="@string/bottom_text"/>
 
             <Button
-                android:id="@+id/render_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/render"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:background="@drawable/render_button"
-                android:layout_below="@+id/bottom_editText"
-                android:layout_marginTop="15sp"
-                android:layout_marginLeft="20sp"
-                android:layout_marginStart="20sp" />
-
-            <Button
                 android:id="@+id/save_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -179,11 +163,24 @@
                 android:textColor="@color/white"
                 android:background="@drawable/save_button"
                 android:layout_below="@+id/bottom_editText"
-                android:layout_toRightOf="@+id/render_button"
-                android:layout_toEndOf="@+id/render_button"
-                android:layout_marginTop="15sp"
-                android:layout_marginLeft="20sp"
-                android:layout_marginStart="20sp" />
+                android:layout_marginTop="20sp"
+                android:layout_centerHorizontal="true"/>
+
+            <Button
+                android:id="@+id/render_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/render"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@drawable/render_button"
+                android:layout_below="@+id/bottom_editText"
+                android:layout_marginTop="20sp"
+                android:layout_toLeftOf="@+id/save_button"
+                android:layout_toStartOf="@+id/save_button"
+                android:layout_marginRight="20sp"
+                android:layout_marginEnd="20sp" />
 
             <Button
                 android:id="@+id/share_button"
@@ -196,7 +193,7 @@
                 android:background="@drawable/share_button"
                 android:layout_below="@+id/bottom_editText"
                 android:layout_toRightOf="@+id/save_button"
-                android:layout_marginTop="15sp"
+                android:layout_marginTop="20sp"
                 android:layout_marginLeft="20sp"
                 android:layout_marginStart="20sp"
                 android:layout_toEndOf="@+id/save_button" />

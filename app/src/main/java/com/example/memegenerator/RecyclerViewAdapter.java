@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.memegenerator.APIResponse.Data;
+
+import java.util.Arrays;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
@@ -37,13 +39,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         final Data data = dataList.get(position);
         holder.textView.setText(dataList.get(position).getName());
 
-        new LoadImage(holder.imageView).execute(dataList.get(position).getImageURL().toString());
+        String url = data.getImageURL().toString();
+        System.out.println(url);
+        String[] urlArray = url.split(":");
+        if (urlArray[0].equalsIgnoreCase("http")) {
+            urlArray[0] = "https";
+        }
 
+        url = urlArray[0] + ":" + urlArray[1];
+
+        new LoadImage(holder.imageView).execute(url);
+
+        final String finalUrl = url;
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), MemesEditActivity.class);
-                intent.putExtra("meme_image_url", data.getImageURL().toString());
+                intent.putExtra("meme_image_url", finalUrl);
                 intent.putExtra("meme_name", data.getName());
                 intent.putExtra("meme_tags", data.getTags());
                 view.getContext().startActivity(intent);

@@ -2,7 +2,11 @@ package com.example.memegenerator;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ScrollView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,6 +40,18 @@ public class MemesDisplayActivity extends AppCompatActivity {
 
         String url = "https://alpha-meme-maker.herokuapp.com/1";
         getContents(url);
+
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+
+                if (!recyclerView.canScrollVertically(1)) {
+                    Toast.makeText(MemesDisplayActivity.this, "Last", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     private void getContents(String url) {

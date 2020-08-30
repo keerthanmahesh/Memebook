@@ -8,4 +8,4 @@ phenomenon or theme.
 Some of memes from the past decade composed of images with IMPACT text overlays on top of it.
 
 ## Implementation
- - The freely available _Meme Maker_ API, https://mememaker.github.io/API/, is used to display the _memes_ in a clickable `Recycler View`.
+ - The freely available [Meme Maker API] (https://mememaker.github.io/API/) is used to display the _memes_ in a clickable `Recycler View`.
